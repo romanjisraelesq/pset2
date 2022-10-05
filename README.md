@@ -1,2 +1,3 @@
 # pset2
-bomb pset
+
+cs61-f22-psets-romanjisraelesq-pset2
