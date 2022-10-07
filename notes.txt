@@ -1,0 +1,68 @@
+- x86-64 processor for the class
+- CPU reads instructions from memory, decodes instructions, and performs
+    operations sequentially (unless branch instruction says otherwise)
+- simple model: source code (C++) -> assembly code -> machine code (binary)
+- assembly code example (objdump on add executable)
+0000000000401210 <add>:
+  401210: 8d 04 3e                      leal    (%rsi,%rdi), %eax
+  401213: c3                            retq
+  401214: 66 2e 0f 1f 84 00 00 00 00 00 nopw    %cs:(%rax,%rax)
+  40121e: 66 90                         nop
+
+    Left: address or offset at which the code appears
+        offset 
+    Middle: machine code
+    Right: assembly language
+
+assembly from object file (objdump -d file.o)
+- linker has not set offsets yet
+
+assembly from executable (objdump -d exefile, gdb)
+- garbarge at the end of functions
+- nop instructions = "no operation" these instructions do nothing
+    -are there to pad to a multiple of 16 bytes for alignment
+- even offsets = faster running
+
+reading assembly
+- follow intuition i.e "ret" returns
+- consult manuals for unfamiliar instructions
+
+- labels end with a colon
+- directives start with .
+- registers begin with % (gcc format assembly)
+    - %eax, %rax is register for return values
+- variables are not a concept in assemblers
+- assemblers deal with locations, memories, and registers
+
+instructions
+- arithmetic: performing computations
+- data movement: move data to and from primary memroy (addresses) to registers
+- control flow: changes order of instruction sequence
+
+ret instructions
+    - ret returns from the current function therefore it is control flow
+
+mov instructions
+- data movement
+- mov SRC, DST 
+- mov $100, %eax -> %eax = 100
+- assignment with flipped order of arguments
+- movl 32-bits
+- movq 64-bits
+
+registers
+- fastest memory available to the CPU
+- x86-64 has only 14 64-bit registers
+- do not have addresses but have names that begin with %
+- cannot be dereferenced
+
+obj commands
+- run r: Execute file passed as command line argument to gdb 
+    You can supply arguments to r; if none, uses the last set passed
+- continue c: Run until the next breakpoint
+- break b: Pause execution when a particular point in the code is reached 
+    Examples: break FILENAME:LINE, break FUNCTION, break FILENAME:FUNCTION
+- dissasemble disas: Output assembly instructions 
+    Examples: disas FUNCTION, disas ADDR1,ADDR2, disas ADDR,+LENGTH
+- examine x: examines memory
+- stepi si: Steps to the next instruction (enters function calls)
