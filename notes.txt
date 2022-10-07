@@ -65,4 +65,8 @@ obj commands
 - dissasemble disas: Output assembly instructions 
     Examples: disas FUNCTION, disas ADDR1,ADDR2, disas ADDR,+LENGTH
 - examine x: examines memory
+- print p: shows the c
 - stepi si: Steps to the next instruction (enters function calls)
+
+- info r shows registers
+- info b shows breakpoints
