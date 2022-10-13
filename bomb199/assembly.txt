@@ -344,15 +344,17 @@ Disassembly of section .text:
   401016:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
   40101d:	00 00 00 
 
-0000000000401020 <_Z6phase1Pc>:
-  401020:	55                   	push   %rbp
-  401021:	31 d2                	xor    %edx,%edx
-  401023:	48 89 e5             	mov    %rsp,%rbp
-  401026:	48 83 ec 10          	sub    $0x10,%rsp
-  40102a:	48 8d 75 f8          	lea    -0x8(%rbp),%rsi
-  40102e:	e8 0d fd ff ff       	call   400d40 <strtol@plt>
+0000000000401020 <_Z6phase1Pc>: //(int, char pointer)
+  401020:	55                   	push   %rbp //push pointer to stack
+  401021:	31 d2                	xor    %edx,%edx //zero 32-bit 3rd-function parameter
+  401023:	48 89 e5             	mov    %rsp,%rbp //pointer = top stack ptr
+  401026:	48 83 ec 10          	sub    $0x10,%rsp //pointer -= 10 := pointer = -10???
+  40102a:	48 8d 75 f8          	lea    -0x8(%rbp),%rsi //pointer - 8 into 2nd parameter
+  40102e:	e8 0d fd ff ff       	call   400d40 <strtol@plt> //string to long 
   401033:	48 3d fb 1f 00 00    	cmp    $0x1ffb,%rax
+    compare 0x1ffb (8187) to the return pointer
   401039:	75 05                	jne    401040 <_Z6phase1Pc+0x20>
+    jump if not equal -> 32 explode
   40103b:	c9                   	leave  
   40103c:	c3                   	ret    
   40103d:	0f 1f 00             	nopl   (%rax)
