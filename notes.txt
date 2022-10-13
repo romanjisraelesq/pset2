@@ -70,3 +70,31 @@ obj commands
 
 - info r shows registers
 - info b shows breakpoints
+
+phase 1
+- push a new pointer into stack
+- 
+
+Dhilan's section
+    - x86-64 low level language of the processor
+    - cc code -> compiler -> assembly code -> machine code -> machine code -> linker -> executable (terminal)
+    - register: active memory
+        - %rax = return values
+        - %rdi = 1st arg of function
+        - %rsi = 2nd arg of function
+        - %rdx = 3rd arg of function
+        - %rsp = stack pointer
+        - %rbp = stack base pointer
+        - %rip = instruction pointer
+    - instructions: INSTR_TYPE SOURCE, DESTINATION
+        - ex: add %r11, %r12 -translation-> %r12 := %r12 + %r11 
+        - instructions sometimes include suffixes...
+suffix      x86 meaning     size (bits)     c++ type 
+- b         - bytes         - 8             - char
+- w         - word          - 16            - short
+- l         - long          - 32            - int 
+- q         - quadword      - 64            - long 
+        - movzwl a(%rip), %eax -translation-> move word (16-bit short) to a long (32-bit int) and insert zeros into the upper bits 16-31 ("zero extend")
+    - x86-64 memory operand: offset(base, index, scale)
+        - address = offset + base + index*scale
+    
