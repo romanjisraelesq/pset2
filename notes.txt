@@ -98,3 +98,28 @@ suffix      x86 meaning     size (bits)     c++ type
     - x86-64 memory operand: offset(base, index, scale)
         - address = offset + base + index*scale
     
+alignment
+    - addresses need to start at a multiple of 
+    - chars are 1 byte so can go anywhere
+    - shorts are 2 bytes so address must be a multiple of 2
+
+    - map's share properties with binary search trees
+        - log(n)
+    - vectors do not sort
+        - O(1)
+
+    - signed overflow is undefined
+    - unsigned is not
+
+    - smallest signed char is -127
+    - char is 1 byte from 0 to 256
+    - heap is dynamically allocated (malloc, calloc)
+    - stack is only local variables
+    - address of current function's return address (address is in stack, but is pointing to the code)
+
+    code -> data -> heap -> stack
+
+    - little endian: least significant byte is in the lowest address
+    - big endian: most significant byte is in lowest address
+    - degree of the 256 determines the byte's significance
+    - big endian 
