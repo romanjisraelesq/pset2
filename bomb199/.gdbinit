@@ -1,6 +1,5 @@
 b explode_bomb
-b phase3
-b phase4
+b phase5
 tui e
 layout asm
 layout split

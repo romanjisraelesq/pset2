@@ -71,9 +71,6 @@ obj commands
 - info r shows registers
 - info b shows breakpoints
 
-phase 1
-- push a new pointer into stack
-- 
 
 Dhilan's section
     - x86-64 low level language of the processor

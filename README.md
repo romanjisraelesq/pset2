@@ -1,3 +1,5 @@
+DO NOT GRADE
+
 CS 61 Problem Set 2
 ===================
 
