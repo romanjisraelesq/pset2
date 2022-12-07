@@ -88,3 +88,5 @@ int main(int argc, char *argv[]) {
     // And that's it! OR IS IT??
     return 0;
 }
+
+//0b11000011001011001011001111010001

@@ -1531,11 +1531,11 @@ Disassembly of section .text:
 00000000004014c0 <_Z6phase6Pc>:
   4014c0: 55                           	pushq	%rbp
   4014c1: 48 89 e5                     	movq	%rsp, %rbp
-  4014c4: 48 83 ec 10                  	subq	$16, %rsp
+  4014c4: 48 83 ec 10                  	subq	$16, %rsp                           *subtract 16 from stack ptr
   4014c8: 48 8d 75 f4                  	leaq	-12(%rbp), %rsi
   4014cc: 48 c7 45 f4 00 00 00 00      	movq	$0, -12(%rbp)
   4014d4: c6 45 fc 00                  	movb	$0, -4(%rbp)
-  4014d8: e8 13 ff ff ff               	callq	0x4013f0 <_Z10calc6_exprPcP5calc6>
+  4014d8: e8 13 ff ff ff               	callq	0x4013f0 <_Z10calc6_exprPcP5calc6>  *call helper
   4014dd: 80 7d fc 00                  	cmpb	$0, -4(%rbp)
   4014e1: 75 1d                        	jne	0x401500 <_Z6phase6Pc+0x40>
   4014e3: 8b 75 f4                     	movl	-12(%rbp), %esi

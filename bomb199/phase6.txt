@@ -1,0 +1,147 @@
+0000000000401340 <_Z12calc6_factorPcP5calc6>:
+  401340: 55                           	pushq	%rbp
+  401341: 48 89 e5                     	movq	%rsp, %rbp
+  401344: 41 55                        	pushq	%r13
+  401346: 41 54                        	pushq	%r12
+  401348: 49 89 f4                     	movq	%rsi, %r12
+  40134b: be 8e 24 40 00               	movl	$4203662, %esi
+  401350: 53                           	pushq	%rbx
+  401351: 48 89 fb                     	movq	%rdi, %rbx
+  401354: 48 83 ec 08                  	subq	$8, %rsp
+  401358: e8 f3 f8 ff ff               	callq	0x400c50 <strspn@plt>
+  40135d: ba 0a 00 00 00               	movl	$10, %edx
+  401362: 31 f6                        	xorl	%esi, %esi
+  401364: 48 89 df                     	movq	%rbx, %rdi
+  401367: 49 89 c5                     	movq	%rax, %r13
+  40136a: e8 c1 f8 ff ff               	callq	0x400c30 <strtoul@plt>
+  40136f: 4d 85 ed                     	testq	%r13, %r13
+  401372: 0f 94 c2                     	sete	%dl
+  401375: 41 89 04 24                  	movl	%eax, (%r12)
+  401379: 41 08 54 24 08               	orb	%dl, 8(%r12)
+  40137e: 83 f8 01                     	cmpl	$1, %eax
+  401381: 77 06                        	ja	0x401389 <_Z12calc6_factorPcP5calc6+0x49>
+  401383: 41 83 6c 24 04 01            	subl	$1, 4(%r12)
+  401389: 48 83 c4 08                  	addq	$8, %rsp
+  40138d: 4a 8d 04 2b                  	leaq	(%rbx,%r13), %rax
+  401391: 5b                           	popq	%rbx
+  401392: 41 5c                        	popq	%r12
+  401394: 41 5d                        	popq	%r13
+  401396: 5d                           	popq	%rbp
+  401397: c3                           	retq
+  401398: 0f 1f 84 00 00 00 00 00      	nopl	(%rax,%rax)
+
+00000000004013a0 <_Z10calc6_termPcP5calc6>:
+  4013a0: 55                           	pushq	%rbp
+  4013a1: 48 89 e5                     	movq	%rsp, %rbp
+  4013a4: 41 54                        	pushq	%r12
+  4013a6: 53                           	pushq	%rbx
+  4013a7: 48 89 f3                     	movq	%rsi, %rbx
+  4013aa: e8 91 ff ff ff               	callq	0x401340 <_Z12calc6_factorPcP5calc6>
+  4013af: 80 38 2a                     	cmpb	$42, (%rax)
+  4013b2: 75 28                        	jne	0x4013dc <_Z10calc6_termPcP5calc6+0x3c>
+  4013b4: 44 8b 23                     	movl	(%rbx), %r12d
+  4013b7: 66 0f 1f 84 00 00 00 00 00   	nopw	(%rax,%rax)
+  4013c0: 48 8d 78 01                  	leaq	1(%rax), %rdi
+  4013c4: 48 89 de                     	movq	%rbx, %rsi
+  4013c7: e8 74 ff ff ff               	callq	0x401340 <_Z12calc6_factorPcP5calc6>
+  4013cc: 44 0f af 23                  	imull	(%rbx), %r12d
+  4013d0: 83 43 04 01                  	addl	$1, 4(%rbx)
+  4013d4: 44 89 23                     	movl	%r12d, (%rbx)
+  4013d7: 80 38 2a                     	cmpb	$42, (%rax)
+  4013da: 74 e4                        	je	0x4013c0 <_Z10calc6_termPcP5calc6+0x20>
+  4013dc: 5b                           	popq	%rbx
+  4013dd: 41 5c                        	popq	%r12
+  4013df: 5d                           	popq	%rbp
+  4013e0: c3                           	retq
+  4013e1: 0f 1f 44 00 00               	nopl	(%rax,%rax)
+  4013e6: 66 2e 0f 1f 84 00 00 00 00 00	nopw	%cs:(%rax,%rax)
+
+00000000004013f0 <_Z10calc6_exprPcP5calc6>:
+  4013f0: 55                           	pushq	%rbp
+  4013f1: 48 89 e5                     	movq	%rsp, %rbp
+  4013f4: 41 55                        	pushq	%r13
+  4013f6: 41 54                        	pushq	%r12
+  4013f8: 49 89 f4                     	movq	%rsi, %r12
+  4013fb: 53                           	pushq	%rbx
+  4013fc: 48 83 ec 08                  	subq	$8, %rsp
+  401400: e8 3b ff ff ff               	callq	0x401340 <_Z12calc6_factorPcP5calc6>
+  401405: 0f b6 10                     	movzbl	(%rax), %edx
+  401408: 80 fa 2a                     	cmpb	$42, %dl
+  40140b: 75 2e                        	jne	0x40143b <_Z10calc6_exprPcP5calc6+0x4b>
+  40140d: 41 8b 1c 24                  	movl	(%r12), %ebx
+  401411: 0f 1f 80 00 00 00 00         	nopl	(%rax)
+  401418: 48 8d 78 01                  	leaq	1(%rax), %rdi
+  40141c: 4c 89 e6                     	movq	%r12, %rsi
+  40141f: e8 1c ff ff ff               	callq	0x401340 <_Z12calc6_factorPcP5calc6>
+  401424: 41 0f af 1c 24               	imull	(%r12), %ebx
+  401429: 41 83 44 24 04 01            	addl	$1, 4(%r12)
+  40142f: 41 89 1c 24                  	movl	%ebx, (%r12)
+  401433: 0f b6 10                     	movzbl	(%rax), %edx
+  401436: 80 fa 2a                     	cmpb	$42, %dl
+  401439: 74 dd                        	je	0x401418 <_Z10calc6_exprPcP5calc6+0x28>
+  40143b: 80 fa 7c                     	cmpb	$124, %dl
+  40143e: 75 5b                        	jne	0x40149b <_Z10calc6_exprPcP5calc6+0xab>
+  401440: 41 8b 1c 24                  	movl	(%r12), %ebx
+  401444: 0f 1f 40 00                  	nopl	(%rax)
+  401448: 48 8d 78 01                  	leaq	1(%rax), %rdi
+  40144c: 4c 89 e6                     	movq	%r12, %rsi
+  40144f: e8 ec fe ff ff               	callq	0x401340 <_Z12calc6_factorPcP5calc6>
+  401454: 45 8b 2c 24                  	movl	(%r12), %r13d
+  401458: 80 38 2a                     	cmpb	$42, (%rax)
+  40145b: 75 53                        	jne	0x4014b0 <_Z10calc6_exprPcP5calc6+0xc0>
+  40145d: 0f 1f 00                     	nopl	(%rax)
+  401460: 48 8d 78 01                  	leaq	1(%rax), %rdi
+  401464: 4c 89 e6                     	movq	%r12, %rsi
+  401467: e8 d4 fe ff ff               	callq	0x401340 <_Z12calc6_factorPcP5calc6>
+  40146c: 45 0f af 2c 24               	imull	(%r12), %r13d
+  401471: 41 8b 4c 24 04               	movl	4(%r12), %ecx
+  401476: 8d 51 01                     	leal	1(%rcx), %edx
+  401479: 45 89 2c 24                  	movl	%r13d, (%r12)
+  40147d: 41 89 54 24 04               	movl	%edx, 4(%r12)
+  401482: 80 38 2a                     	cmpb	$42, (%rax)
+  401485: 74 d9                        	je	0x401460 <_Z10calc6_exprPcP5calc6+0x70>
+  401487: 44 09 eb                     	orl	%r13d, %ebx
+  40148a: 83 c2 01                     	addl	$1, %edx
+  40148d: 41 89 1c 24                  	movl	%ebx, (%r12)
+  401491: 41 89 54 24 04               	movl	%edx, 4(%r12)
+  401496: 80 38 7c                     	cmpb	$124, (%rax)
+  401499: 74 ad                        	je	0x401448 <_Z10calc6_exprPcP5calc6+0x58>
+  40149b: 48 83 c4 08                  	addq	$8, %rsp
+  40149f: 5b                           	popq	%rbx
+  4014a0: 41 5c                        	popq	%r12
+  4014a2: 41 5d                        	popq	%r13
+  4014a4: 5d                           	popq	%rbp
+  4014a5: c3                           	retq
+  4014a6: 66 2e 0f 1f 84 00 00 00 00 00	nopw	%cs:(%rax,%rax)
+  4014b0: 41 8b 54 24 04               	movl	4(%r12), %edx
+  4014b5: eb d0                        	jmp	0x401487 <_Z10calc6_exprPcP5calc6+0x97>
+  4014b7: 66 0f 1f 84 00 00 00 00 00   	nopw	(%rax,%rax)
+
+00000000004014c0 <_Z6phase6Pc>:
+  4014c0: 55                           	pushq	%rbp
+  4014c1: 48 89 e5                     	movq	%rsp, %rbp
+  4014c4: 48 83 ec 10                  	subq	$16, %rsp
+  4014c8: 48 8d 75 f4                  	leaq	-12(%rbp), %rsi
+  4014cc: 48 c7 45 f4 00 00 00 00      	movq	$0, -12(%rbp)
+  4014d4: c6 45 fc 00                  	movb	$0, -4(%rbp)
+  4014d8: e8 13 ff ff ff               	callq	0x4013f0 <_Z10calc6_exprPcP5calc6>
+  4014dd: 80 7d fc 00                  	cmpb	$0, -4(%rbp)
+  4014e1: 75 1d                        	jne	0x401500 <_Z6phase6Pc+0x40>
+  4014e3: 8b 75 f4                     	movl	-12(%rbp), %esi
+  4014e6: 81 fe d1 b3 2c c3            	cmpl	$3274486737, %esi
+  4014ec: 75 17                        	jne	0x401505 <_Z6phase6Pc+0x45>
+  4014ee: 83 7d f8 03                  	cmpl	$3, -8(%rbp)
+  4014f2: 7e 2c                        	jle	0x401520 <_Z6phase6Pc+0x60>
+  4014f4: c9                           	leave
+  4014f5: c3                           	retq
+  4014f6: 66 2e 0f 1f 84 00 00 00 00 00	nopw	%cs:(%rax,%rax)
+  401500: be ff ff ff ff               	movl	$4294967295, %esi
+  401505: bf 99 24 40 00               	movl	$4203673, %edi
+  40150a: 31 c0                        	xorl	%eax, %eax
+  40150c: e8 df f6 ff ff               	callq	0x400bf0 <printf@plt>
+  401511: e8 ba 05 00 00               	callq	0x401ad0 <_Z12explode_bombv>
+  401516: 66 2e 0f 1f 84 00 00 00 00 00	nopw	%cs:(%rax,%rax)
+  401520: bf b4 24 40 00               	movl	$4203700, %edi
+  401525: e8 46 f8 ff ff               	callq	0x400d70 <puts@plt>
+  40152a: e8 a1 05 00 00               	callq	0x401ad0 <_Z12explode_bombv>
+  40152f: 90                           	nop
