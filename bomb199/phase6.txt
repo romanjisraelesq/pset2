@@ -130,8 +130,8 @@
   4014e3: 8b 75 f4                     	movl	-12(%rbp), %esi
   4014e6: 81 fe d1 b3 2c c3            	cmpl	$3274486737, %esi
   4014ec: 75 17                        	jne	0x401505 <_Z6phase6Pc+0x45>
-  4014ee: 83 7d f8 03                  	cmpl	$3, -8(%rbp)
-  4014f2: 7e 2c                        	jle	0x401520 <_Z6phase6Pc+0x60>
+  4014ee: 83 7d f8 03                  	cmpl	$3, -8(%rbp)                *****
+  4014f2: 7e 2c                        	jle	0x401520 <_Z6phase6Pc+0x60>     *****
   4014f4: c9                           	leave
   4014f5: c3                           	retq
   4014f6: 66 2e 0f 1f 84 00 00 00 00 00	nopw	%cs:(%rax,%rax)
